@@ -1,0 +1,2 @@
+import {<%= actionConstant %>} from "./<%= importPath %>";
+

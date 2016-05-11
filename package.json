@@ -1,0 +1,38 @@
+{
+  "name": "generator-react-redux-es6-webpack",
+  "version": "0.1.0",
+  "description": "Generator-React-Redux using es6 with Webpack, Babel",
+  "main": "generators/action/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dothanhlam/generator-react-redux-es6-webpack"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "reactjs",
+    "webpack",
+    "redux",
+    "flux",
+    "es6",
+    "babel",
+    "sass"
+  ],
+  "author": {
+    "name": "Lam Do",
+    "email": "dothanhlam@gmail.com"
+  },
+  "contributors": [
+
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dothanhlam/generator-react-redux-es6-webpack/issues"
+  },
+  "homepage": "https://github.com/dothanhlam/generator-react-redux-es6-webpack",
+  "dependencies": {
+    "yeoman-generator": "^0.23.3"
+  }
+}
