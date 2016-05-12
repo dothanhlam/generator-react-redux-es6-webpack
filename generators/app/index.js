@@ -36,12 +36,6 @@ module.exports = generator.Base.extend({
                     default: this.version
                 },
             {
-                type: 'input',
-                name: 'root',
-                message: 'Root folder',
-                default: this.root
-            },
-            {
                 type: 'list',
                 name: 'style',
                 message: 'Which style language do you want to use?',
