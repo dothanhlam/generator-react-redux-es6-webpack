@@ -17,8 +17,7 @@
     "redux",
     "flux",
     "es6",
-    "babel",
-    "sass"
+    "babel"
   ],
   "author": {
     "name": "Lam Do",
