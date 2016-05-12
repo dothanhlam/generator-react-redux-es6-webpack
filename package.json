@@ -20,19 +20,22 @@
     "babel",
     "sass"
   ],
+  "files": [
+    "generators/app",
+    "generators/component"
+  ],
   "author": {
     "name": "Lam Do",
     "email": "dothanhlam@gmail.com"
   },
-  "contributors": [
-
-  ],
+  "contributors": [],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dothanhlam/generator-react-redux-es6-webpack/issues"
   },
   "homepage": "https://github.com/dothanhlam/generator-react-redux-es6-webpack",
   "dependencies": {
+    "gulp-beautify": "^2.0.0",
     "yeoman-generator": "^0.23.3"
   }
 }
