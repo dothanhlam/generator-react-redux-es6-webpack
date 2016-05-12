@@ -1,0 +1,41 @@
+import {Component, PropTypes} from "react";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+
+/**
+* @name <%= name %>
+* @description
+* @example
+*/
+
+function mapStateToProps(state) {
+    const props = {};
+    return props;
+}
+
+function mapDispatchToProps(dispatch) {
+    const actions = {};
+    const actionMap = { actions: bindActionCreators(actions, dispatch) };
+    return actionMap;
+}
+
+@connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
+class <%= name %> extends Component {
+    constructor() {
+        super(...arguments);
+    }
+
+    static displayName = "<%= name %>";
+    static propTypes = {
+        actions: PropTypes.object.isRequired
+    }
+
+    buildComponent(props, state) {
+        return <div><%= name %></div>
+    }
+
+    render() {
+        return this.buildComponent(this.props, this.state);
+    }
+}
+export default <%= name %>;

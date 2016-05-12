@@ -1,7 +1,7 @@
 # generator-react-redux-es6-webpack
 > Generator-React-Redux using es6 with Webpack, Babel
 
-## Intallation
+## Installation
 You need to install yeoman generator as global
 
 `sudo npm install -g yeoman-generator`
@@ -12,4 +12,13 @@ You need to install yeoman generator as global
 
 `generator-react-redux-es6-webpack\npm link`
 
+## Generate component
+
 `yo react-redux-es6-webpack:component MyBox`
+
+## Generate folder structure
+`mkdir [your-application-name]`
+
+`cd [your-application-name]`
+
+`yo react-redux-es6-webpack`

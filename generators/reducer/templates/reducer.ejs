@@ -1,0 +1,16 @@
+const initialState = {};
+
+const <%= name %> = (state = initialState, action) => {
+
+    let nextState = Object.assign({}, state);
+
+    switch(action.type) {
+        case 'YOUR_ACTION':
+            return nextState;
+
+        default:
+            return state;
+    }
+}
+
+export default <%= name %>;

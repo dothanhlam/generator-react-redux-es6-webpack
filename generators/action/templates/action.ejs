@@ -1,0 +1,8 @@
+import {<%= actionConstant %>} from "./<%= importPath %>";
+
+export function <%= name %>(param) {
+    return {
+        type: <%= actionConstant %>,
+        param
+    };
+}
