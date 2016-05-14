@@ -19,6 +19,7 @@ module.exports = generator.Base.extend({
         this.root = "app";
         this.version = "0.1.0";
         this.styleLang = "css";
+        this.installingDependencies = false;
     },
 
     prompting: function () {
@@ -41,6 +42,12 @@ module.exports = generator.Base.extend({
                 message: 'Which style language do you want to use?',
                 choices: ['css', 'sass', 'less', 'stylus'],
                 default: this.styleLang
+            },
+            {
+                name: 'dependencies',
+                message: 'Would you like to install dependencies?',
+                default: 'Y/n',
+                warning: 'Yes: Enabling this will be totally awesome!'
             }
         ]
         ).then(function (answers) {
@@ -68,6 +75,11 @@ module.exports = generator.Base.extend({
                 ref.destinationPath(ref.root +'/' + item + '/index.js')
             );
         });
+
+        this.fs.copy(
+            this.templatePath('app.ejs'),
+            this.destinationPath(ref.root +'/app.js')
+        );
     },
 
   /*  install: function () {
@@ -79,6 +91,9 @@ module.exports = generator.Base.extend({
             'react-dom',
             'react-redux',
             'react-router',
+            'react-immutable-proptypes',
+            'react-transform-catch-errors',
+            'react-transform-hmr',
             'react-addons-css-transition-group',
             'react-addons-update'], {save: true});
 
@@ -100,20 +115,12 @@ module.exports = generator.Base.extend({
             'classnames',
             'cross-env',
             'css-loader',
-            'eslint',
-            'eslint-loader',
             'expect',
             'flux-standard-action',
             'html-webpack-plugin',
-            'immutable',
             'jsdom',
             'mocha',
             'node-sass',
-            'react-addons-test-utils',
-            'react-immutable-proptypes',
-            'react-router',
-            'react-transform-catch-errors',
-            'react-transform-hmr',
             'sass-loader',
             'style-loader',
             'webpack',

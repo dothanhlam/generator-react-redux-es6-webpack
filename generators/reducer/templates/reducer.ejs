@@ -1,16 +1,17 @@
 const initialState = {};
 
-const <%= name %> = (state = initialState, action) => {
-
-    let nextState = Object.assign({}, state);
-
+module.exports = function(state = initialState, action = null) {
+//let nextState = Object.assign({}, state);
     switch(action.type) {
-        case 'YOUR_ACTION':
-            return nextState;
+    /*
+        case 'YOUR_ACTION': {
+        // Modify next state depending on the action and return it
+        return nextState;
+        }
+    */
 
-        default:
+        default: {
             return state;
+        }
     }
 }
-
-export default <%= name %>;
