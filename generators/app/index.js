@@ -104,7 +104,7 @@ module.exports = generator.Base.extend({
         }
 
         console.log('Installing dependencies ...');
-        return;
+
         this.npmInstall([
             'flux',
             'marked',
