@@ -1,7 +1,7 @@
 # generator-react-redux-es6-webpack
 > Generator-React-Redux using es6 with Webpack, Babel
 
-[![Amount of Downloads per month](https://img.shields.io/npm/dm/generator-react-redux-es6-webpack.svg "Amount of Downloads") [![Dependency Status](https://david-dm.org/dothanhlam/generator-react-redux-es6-webpack.svg)](https://david-dm.org/dothanhlam/generator-react-redux-es6-webpack) [![devDependency Status](https://david-dm.org/dothanhlam/generator-react-redux-es6-webpack.svg)](https://david-dm.org/stylesuxx/generator-react-webpack-redux#info=devDependencies) ![Node Version](https://img.shields.io/node/v/generator-react-redux-es6-webpack.svg "Node Version")
+![Amount of Downloads per month](https://img.shields.io/npm/dm/generator-react-redux-es6-webpack.svg "Amount of Downloads") [![Dependency Status](https://david-dm.org/dothanhlam/generator-react-redux-es6-webpack.svg)](https://david-dm.org/dothanhlam/generator-react-redux-es6-webpack) [![devDependency Status](https://david-dm.org/dothanhlam/generator-react-redux-es6-webpack.svg)](https://david-dm.org/stylesuxx/generator-react-webpack-redux#info=devDependencies) ![Node Version](https://img.shields.io/node/v/generator-react-redux-es6-webpack.svg "Node Version")
 ## Installation
 You need to install yeoman generator as global
 
