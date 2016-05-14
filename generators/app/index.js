@@ -1,6 +1,7 @@
 'use strict';
 let generator = require('yeoman-generator');
 const path = require('path');
+const _ = require('lodash');
 
 
 const baseName = path.basename(process.cwd());
@@ -15,7 +16,7 @@ module.exports = generator.Base.extend({
         generator.Base.apply(this, arguments);
 
         // default
-        this.appname = getBaseDir().toLowerCase();
+        this.appName =  _.camelCase(getBaseDir());
         this.root = "app";
         this.version = "0.1.0";
         this.styleLang = "css";
@@ -28,7 +29,7 @@ module.exports = generator.Base.extend({
                 type: 'input',
                 name: 'name',
                 message: 'Your project name',
-                default: this.appname
+                default: this.appName
             },
                 {
                     type: 'input',
@@ -40,36 +41,51 @@ module.exports = generator.Base.extend({
                 type: 'list',
                 name: 'style',
                 message: 'Which style language do you want to use?',
-                choices: ['css', 'sass', 'less', 'stylus'],
+                choices: ['css', 'sass'],
                 default: this.styleLang
             },
             {
                 name: 'dependencies',
                 message: 'Would you like to install dependencies?',
                 default: 'Y/n',
-                warning: 'Yes: Enabling this will be totally awesome!'
+                warning: 'Yes: Enabling this will install all default dependencies!'
             }
         ]
         ).then(function (answers) {
-
+                let dependencies = _.lowerCase(_.trim(answers.dependencies));
+                this.installingDependencies = _.indexOf(["yes", "y n"], dependencies) >= 0;
+                this.styleLang = answers.style;
+                this.version = answers.version;
+                this.appName = _.camelCase(answers.name);
         }.bind(this));
     },
 
     writing: function () {
-        console.log('create folder structures');
+        console.log('Creating folder structures ...');
+        let ref = this;
 
         this.conflicter.force = true;
+        ['_package.json',
+            '_.gitignore']
+        .forEach(function(item) {
+                ref.fs.copy(
+                    ref.templatePath(item),
+                        ref.destinationPath(_.trim(item, '_')), {
+                        name: ref.appName,
+                        version: ref.version
+                    }
+                )
+            });
 
-        this.fs.copyTpl(
-            this.templatePath('_package.json'),
-            this.destinationPath('package.json'), {
-                name: this.appname,
-                version: this.version
-            }
-        );
-
-        let ref = this;
-        ['actions', 'components', 'containers', 'constants', 'reducers', 'routes'].forEach(function (item) {
+            ['./',
+            'actions',
+            'components',
+            'containers',
+            'constants',
+            'reducers',
+            'routes',
+            'stores']
+            .forEach(function (item) {
             ref.fs.copy(
                 ref.templatePath(item + '/index.js'),
                 ref.destinationPath(ref.root +'/' + item + '/index.js')
@@ -82,8 +98,13 @@ module.exports = generator.Base.extend({
         );
     },
 
-  /*  install: function () {
-        console.log('install app dependencies');
+    install: function () {
+        if (!this.installingDependencies) {
+            return;
+        }
+
+        console.log('Installing dependencies ...');
+        return;
         this.npmInstall([
             'flux',
             'marked',
@@ -112,7 +133,6 @@ module.exports = generator.Base.extend({
             'babel-preset-stage-0',
             'babel-register',
             'babel-runtime',
-            'classnames',
             'cross-env',
             'css-loader',
             'expect',
@@ -125,5 +145,14 @@ module.exports = generator.Base.extend({
             'style-loader',
             'webpack',
             'webpack-dev-server'], {saveDev: true});
-    } */
+
+        if (this.styleLang == "sass") {
+            this.npmInstall([
+                'css-loader',
+                'node-sass',
+                'sass-loader',
+                'style-loader',
+            ], {saveDev: true});
+        }
+    }
 });
